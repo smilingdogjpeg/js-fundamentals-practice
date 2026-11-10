@@ -32,7 +32,9 @@ Each file is a single exercise, named after what it does. Commit messages descri
 - The ternary operator
 - Mutation vs. non-mutating methods, and checking the original array is unchanged
 - Truthy and falsy values, and the remainder operator (`%`) with negative numbers
-
+- Error handling: throwing errors with `throw new Error(...)` and catching them with `try`/`catch`
+  - Guard clauses that reject invalid input, with the caller deciding how to respond
+- Combining `.filter()` and `.reduce()` (e.g. the average of only the even numbers)
 ## Running the code
 
 Requires [Node.js](https://nodejs.org/).
