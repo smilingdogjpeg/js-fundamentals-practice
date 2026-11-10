@@ -25,7 +25,11 @@ Each file is a single exercise, named after what it does. Commit messages descri
 - `.map()`: transforming every element, returning a new array of the same length
 - `.forEach()`: running side effects (and why it returns `undefined`)
 - Chaining array methods
-- `.reduce()`: accumulating an array into a single value, including the initial value and the empty-array case
+- `.reduce()`: accumulating an array into a single value
+    - Sum, average and maximum, using the accumulator and an initial value
+    - Choosing between an explicit initial value and the first element as the starting accumulator
+- Guard clauses and throwing errors to handle edge cases such as empty arrays
+- The ternary operator
 - Mutation vs. non-mutating methods, and checking the original array is unchanged
 - Truthy and falsy values, and the remainder operator (`%`) with negative numbers
 
@@ -39,7 +43,8 @@ node week-01/arrays/<file-name>.js
 
 ## Up next
 
-- Guard clauses and handling edge cases (e.g. empty arrays)
-- Objects, strings and further array methods
+- Combining array methods (e.g. average of only the even numbers)
+- Objects and arrays of objects
+- Strings and further array methods
 - Asynchronous JavaScript
 - Testing with Jest
