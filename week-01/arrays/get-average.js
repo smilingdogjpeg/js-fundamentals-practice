@@ -8,8 +8,6 @@ function getAverage(numbers) {
     const total = numbers.reduce(
         (accumulator, currentValue) =>
             accumulator + currentValue, initialValue
-
-
         );
     return total / numbers.length;
 
