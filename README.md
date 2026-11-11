@@ -16,36 +16,46 @@ week-01/
     ...
 ```
 
-Each file is a single exercise, named after what it does. Commit messages describe the concept practised.
+Each file is a single exercise, named after what it does, apart from warmup.js which is used for quick experiments in a less formal style. Commit messages describe the concept practised.
 
 ## Topics covered so far
 
-### Week 1: Arrays
+### Week 1
+
+#### Arrays
 - `.filter()`: keeping elements that pass a test, returning a new array
 - `.map()`: transforming every element, returning a new array of the same length
 - `.forEach()`: running side effects (and why it returns `undefined`)
 - Chaining array methods
 - `.reduce()`: accumulating an array into a single value
-    - Sum, average and maximum, using the accumulator and an initial value
-    - Choosing between an explicit initial value and the first element as the starting accumulator
-- Guard clauses and throwing errors to handle edge cases such as empty arrays
+  - Sum, average and maximum, using the accumulator and an initial value
+  - Choosing between an explicit initial value and the first element as the starting accumulator
+- Combining `.filter()` and `.reduce()` (e.g. the average of only the even numbers)
+
+#### Sorting and compare functions
+- Default `.sort()` converts elements to strings and compares them lexicographically, so `[10, 1, 5, 100]` sorts to `[1, 10, 100, 5]`
+- Compare functions: a two-parameter callback that returns a verdict about one pair; only the sign matters (negative: `a` first, positive: `b` first, zero: keep order)
+- Numeric sorting with `(a, b) => a - b` (ascending) and `(a, b) => b - a` (descending)
+- Implicit vs explicit returns in arrow functions
+- Mutating vs non-mutating: `.sort()` vs `.toSorted()` and `[...arr].sort()`, checked with reference equality (`===`)
+- Debugging a test where an earlier `.sort()` had already mutated a shared array
+
+#### Language fundamentals
 - The ternary operator
-- Mutation vs. non-mutating methods, and checking the original array is unchanged
 - Truthy and falsy values, and the remainder operator (`%`) with negative numbers
 - Error handling: throwing errors with `throw new Error(...)` and catching them with `try`/`catch`
-  - Guard clauses that reject invalid input, with the caller deciding how to respond
-- Combining `.filter()` and `.reduce()` (e.g. the average of only the even numbers)
+  - Guard clauses that reject invalid input (such as empty arrays), with the caller deciding how to respond
+
 ## Running the code
 
 Requires [Node.js](https://nodejs.org/).
 
 ```bash
-node week-01/arrays/<file-name>.js
+node week-01/<topic>/<file-name>.js
 ```
 
 ## Up next
 
-- Combining array methods (e.g. average of only the even numbers)
 - Objects and arrays of objects
 - Strings and further array methods
 - Asynchronous JavaScript
