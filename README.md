@@ -14,9 +14,11 @@ Exercises are grouped by week, then by topic:
 week-01/
   arrays/
     ...
+  objects/
+    ...
 ```
 
-Each file is a single exercise, named after what it does, apart from warmup.js which is used for quick experiments in a less formal style. Commit messages describe the concept practised.
+Each file is a single exercise, named after what it does. Commit messages describe the concept practised.
 
 ## Topics covered so far
 
@@ -40,6 +42,20 @@ Each file is a single exercise, named after what it does, apart from warmup.js w
 - Mutating vs non-mutating: `.sort()` vs `.toSorted()` and `[...arr].sort()`, checked with reference equality (`===`)
 - Debugging a test where an earlier `.sort()` had already mutated a shared array
 
+#### Objects
+- Objects as collections of named properties (key–value pairs), and when to use them instead of arrays
+- Dot notation vs bracket notation: bracket notation evaluates an expression, so the key can come from a variable
+- Reading a missing property returns `undefined`; reading a property *of* `undefined` throws a `TypeError`
+- Updating, adding and deleting properties
+- Properties vs variables: properties belong to an object and aren't in scope on their own
+- `const` prevents reassigning the variable, not changing the object it references
+- References: assigning an object to a new variable copies the reference, not the object
+- Spread syntax (`...`) for copying arrays and objects, and for copying while overriding a property
+- Shallow vs deep copies:
+  - `{ ...obj }` copies nested arrays and objects by reference, so they stay shared
+  - Copying each level that leads to the data being changed: `{ ...team, players: [...team.players] }`
+  - Deep copying with `structuredClone()`, and the limitations of `JSON.parse(JSON.stringify(...))`
+
 #### Language fundamentals
 - The ternary operator
 - Truthy and falsy values, and the remainder operator (`%`) with negative numbers
@@ -56,7 +72,7 @@ node week-01/<topic>/<file-name>.js
 
 ## Up next
 
-- Objects and arrays of objects
+- Arrays of objects
 - Strings and further array methods
 - Asynchronous JavaScript
 - Testing with Jest
