@@ -16,6 +16,8 @@ week-01/
     ...
   objects/
     ...
+  arrays-of-objects/
+    ...
 ```
 
 Each file is a single exercise, named after what it does. Commit messages describe the concept practised.
@@ -49,18 +51,36 @@ Each file is a single exercise, named after what it does. Commit messages descri
 - Updating, adding and deleting properties
 - Properties vs variables: properties belong to an object and aren't in scope on their own
 - `const` prevents reassigning the variable, not changing the object it references
-- References: assigning an object to a new variable copies the reference, not the object
+- References: primitives are copied by value; objects and arrays are copied by reference
 - Spread syntax (`...`) for copying arrays and objects, and for copying while overriding a property
 - Shallow vs deep copies:
   - `{ ...obj }` copies nested arrays and objects by reference, so they stay shared
   - Copying each level that leads to the data being changed: `{ ...team, players: [...team.players] }`
   - Deep copying with `structuredClone()`, and the limitations of `JSON.parse(JSON.stringify(...))`
 
+#### Arrays of objects
+- Zero-based indexing and off-by-one errors; `arr.at(-1)` for the last element
+- `.map()` and `.filter()` on objects, and chaining them (each method works on the previous step's result)
+- `getTeamNames`: extracting one property from every object
+- `getTotalPoints`: summing a property with `.reduce()` and an initial value
+  - Type coercion: why adding an object gives `"[object Object]"`
+- `getLeaderboard`: a non-mutating, multi-criteria sort
+  - Points highest first, with ties broken by name A–Z
+  - String comparison with `<` / `>` and `localeCompare()`
+  - Dry-running a compare function by hand for each branch
+  - Debugging a missing `return` that left tied teams in their original order
+
 #### Language fundamentals
 - The ternary operator
 - Truthy and falsy values, and the remainder operator (`%`) with negative numbers
 - Error handling: throwing errors with `throw new Error(...)` and catching them with `try`/`catch`
   - Guard clauses that reject invalid input (such as empty arrays), with the caller deciding how to respond
+- Functions and scope:
+  - Parameters vs arguments: a parameter is a new local variable filled by the argument
+  - Scope lookup from the inside out, and shadowing
+  - Pure functions: using parameters instead of outer variables, so functions are reusable and testable
+  - Hoisting of function declarations, and the temporal dead zone for `let` and `const`
+  - Functions without a `return` give back `undefined`
 
 ## Running the code
 
@@ -72,7 +92,7 @@ node week-01/<topic>/<file-name>.js
 
 ## Up next
 
-- Arrays of objects
+- Week 1 review: mock interview questions
 - Strings and further array methods
 - Asynchronous JavaScript
 - Testing with Jest
