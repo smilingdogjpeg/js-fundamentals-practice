@@ -7,11 +7,9 @@ const teams = [
 
 const testTeams = [{ name: "Test Team", faction: "Air", points: 1 }];
 
-
 function getTeamNames(teamList){
     return teamList.map((team) => team.name);
 }
 
 console.log(getTeamNames(teams));
-
 console.log(getTeamNames(testTeams));
