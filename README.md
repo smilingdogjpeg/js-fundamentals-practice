@@ -1,15 +1,15 @@
 # JavaScript Fundamentals Practice
-
+ 
 A practice repository where I'm rebuilding and deepening my JavaScript fundamentals through small, focused exercises. It's a learning log, not a finished project: the point is steady, deliberate practice and being able to explain what each piece of code does and why.
-
+ 
 ## Why this exists
-
+ 
 I completed the Northcoders software development bootcamp (JavaScript, TypeScript, Node.js, Express, React, PostgreSQL) and I'm now returning to the fundamentals to strengthen them properly before building more projects. I'm working through exercises one concept at a time, predicting the output before running the code, and testing my understanding by experimenting.
-
+ 
 ## Structure
-
+ 
 Exercises are grouped by week, then by topic:
-
+ 
 ```
 week-01/
   arrays/
@@ -18,14 +18,17 @@ week-01/
     ...
   arrays-of-objects/
     ...
+week-02/
+  strings/
+    ...
 ```
-
+ 
 Each file is a single exercise, named after what it does. Commit messages describe the concept practised.
-
+ 
 ## Topics covered so far
-
+ 
 ### Week 1
-
+ 
 #### Arrays
 - `.filter()`: keeping elements that pass a test, returning a new array
 - `.map()`: transforming every element, returning a new array of the same length
@@ -35,7 +38,6 @@ Each file is a single exercise, named after what it does. Commit messages descri
   - Sum, average and maximum, using the accumulator and an initial value
   - Choosing between an explicit initial value and the first element as the starting accumulator
 - Combining `.filter()` and `.reduce()` (e.g. the average of only the even numbers)
-
 #### Sorting and compare functions
 - Default `.sort()` converts elements to strings and compares them lexicographically, so `[10, 1, 5, 100]` sorts to `[1, 10, 100, 5]`
 - Compare functions: a two-parameter callback that returns a verdict about one pair; only the sign matters (negative: `a` first, positive: `b` first, zero: keep order)
@@ -43,7 +45,6 @@ Each file is a single exercise, named after what it does. Commit messages descri
 - Implicit vs explicit returns in arrow functions
 - Mutating vs non-mutating: `.sort()` vs `.toSorted()` and `[...arr].sort()`, checked with reference equality (`===`)
 - Debugging a test where an earlier `.sort()` had already mutated a shared array
-
 #### Objects
 - Objects as collections of named properties (key–value pairs), and when to use them instead of arrays
 - Dot notation vs bracket notation: bracket notation evaluates an expression, so the key can come from a variable
@@ -57,7 +58,6 @@ Each file is a single exercise, named after what it does. Commit messages descri
   - `{ ...obj }` copies nested arrays and objects by reference, so they stay shared
   - Copying each level that leads to the data being changed: `{ ...team, players: [...team.players] }`
   - Deep copying with `structuredClone()`, and the limitations of `JSON.parse(JSON.stringify(...))`
-
 #### Arrays of objects
 - Zero-based indexing and off-by-one errors; `arr.at(-1)` for the last element
 - `.map()` and `.filter()` on objects, and chaining them (each method works on the previous step's result)
@@ -69,7 +69,6 @@ Each file is a single exercise, named after what it does. Commit messages descri
   - String comparison with `<` / `>` and `localeCompare()`
   - Dry-running a compare function by hand for each branch
   - Debugging a missing `return` that left tied teams in their original order
-
 #### Language fundamentals
 - The ternary operator
 - Truthy and falsy values, and the remainder operator (`%`) with negative numbers
@@ -81,18 +80,35 @@ Each file is a single exercise, named after what it does. Commit messages descri
   - Pure functions: using parameters instead of outer variables, so functions are reusable and testable
   - Hoisting of function declarations, and the temporal dead zone for `let` and `const`
   - Functions without a `return` give back `undefined`
-
+### Week 2
+ 
+#### Strings
+- Strings are primitives and immutable: string methods return new strings rather than changing the original
+- Reassignment vs mutation with string variables (`name = name.toUpperCase()` reassigns the variable; the original string is unchanged)
+- Zero-based indexing, `.length`, `.at(-1)` and index arithmetic (`str[str.length - 1]`)
+- `.charAt(0)` vs `str[0]` on an empty string (`""` vs `undefined`)
+- `.slice()`, `.toUpperCase()` and `.toLowerCase()`
+- `.split()` and `.join()`: converting between strings and arrays
+- Chaining string and array methods: split → map → join
+- `capitalise`, `capitaliseWords` and `getInitials`: reusing one function inside another
+  - Passing a function as a callback (`.map(capitalise)`) vs calling it immediately (`capitalise(word)`)
 ## Running the code
-
+ 
 Requires [Node.js](https://nodejs.org/).
-
+ 
 ```bash
-node week-01/<topic>/<file-name>.js
+node <week>/<topic>/<file-name>.js
 ```
-
+ 
+For example:
+ 
+```bash
+node week-02/strings/capitalise.js
+```
+ 
 ## Up next
-
-- Week 1 review: mock interview questions
-- Strings and further array methods
+ 
+- More string exercises: `countWords`, `reverseString`, `toSlug`
+- Further array methods: `.find()`, `.some()`, `.every()`, `.includes()`
 - Asynchronous JavaScript
 - Testing with Jest
