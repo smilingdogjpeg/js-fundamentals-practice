@@ -1,5 +1,5 @@
 function countWords(sentence) {
-    const words = sentence.split(" ").filter(word => word !== "" );
+    const words = sentence.split(" ").filter(word => word !== "");
     return words.length;
 }
 
